@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoptails - Dê uma patinha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="cabeca">
+    <a href="#" class="logo"> 
+        <img src="img/adoptail de lado.png" width="200px">
+    </a>
+
+    <nav>
+      <a href="#inicio" class="ativo">Início</a>
+      <a href="#catalogo" onclick="mudarAba('catalogo')">Adotar</a>
+      <a href="#catalogo" onclick="mudarAba('doar')">Doar</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-conteudo">
+      <h1>Adoptails</h1>
+      <p>dê uma patinha</p>
+      <div class="hero-botoes">
+        <a href="#catalogo" class="btn-hero-verde" onclick="mudarAba('catalogo')">CONHEÇA NOSSOS ANIMAIS</a>
+
+        <a href="#como-ajudar" class="btn-hero-vermelho">VEJA COMO AJUDAR</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo" class="secao-catalogo">
+    <h2 class="titulo-secao">Animais Esperando um Lar</h2>
+
+    <div class="abas-container">
+      <button id="btn-aba-catalogo" class="aba-btn ativa" onclick="mudarAba('catalogo')">Ver Animais</button>
+      <button id="btn-aba-doar" class="aba-btn" onclick="mudarAba('doar')">+ Registrar Animal para Doação</button>
+    </div>
+
+    <div id="aba-catalogo" class="aba-conteudo ativa">
+      <div class="cards" id="lista-animais">
+        <p>Carregando animais...</p>
+      </div>
+    </div>
+
+    <div id="aba-doar" class="aba-conteudo">
+      <div class="form-doacao">
+        <h3>Oferecer Animal para Adoção</h3>
+        <form id="form-cadastrar-animal">
+          <div class="form-grupo">
+            <label for="nome">Nome do Pet</label>
+            <input type="text" id="nome" required placeholder="Ex: Bob, Mel">
+          </div>
+          <div class="form-grupo">
+            <label for="especie">Espécie</label>
+            <select id="especie" required>
+              <option value="Cachorro">Cachorro</option>
+              <option value="Gato">Gato</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-grupo">
+            <label for="idade">Idade</label>
+            <input type="text" id="idade" required placeholder="Ex: 2 anos, 5 meses">
+          </div>
+          <div class="form-grupo">
+            <label for="arquivo-foto">Foto do Pet (opcional)</label>
+            <input type="file" id="arquivo-foto" accept="image/*">
+            <p class="dica-foto">Escolha uma imagem do seu aparelho (JPG, PNG).</p>
+            <img id="previa-foto" class="previa-foto" alt="Prévia da foto escolhida" hidden>
+            <input type="hidden" id="foto">
+          </div>
+          <button type="submit" class="btn-enviar">Cadastrar Animal</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-ajudar" class="secao-ajudar">
+    <h2 class="titulo-secao">Como Você Pode Mudar uma Vida</h2>
+    <div class="ajudar-grid">
+      <div class="ajudar-item" onclick="mudarAba('catalogo'); location.href='#catalogo'">
+        <div class="ajudar-icone">
+          <svg viewBox="0 0 64 64" width="52" height="52" fill="#F8A334">
+            <path d="M32 54 C32 54 10 40 10 24 C10 16 16 11 23 11 C27 11 30 13 32 16 C34 13 37 11 41 11 C48 11 54 16 54 24 C54 40 32 54 32 54 Z" opacity="0.25"/>
+            <path d="M14 38 C14 38 22 48 32 52 C42 48 50 38 50 38 L46 32 C41 37 36 40 32 42 C28 40 23 37 18 32 Z"/>
+            <circle cx="24" cy="24" r="3"/>
+            <circle cx="32" cy="21" r="3"/>
+            <circle cx="40" cy="24" r="3"/>
+            <ellipse cx="32" cy="30" rx="5" ry="4"/>
+          </svg>
+        </div>
+        <h3>Adotar</h3>
+        <p>Adote nossos pequeninos resgatados e dê a eles um lar seguro, cheio de amor e carinho para toda a vida.</p>
+      </div>
+
+      <div class="ajudar-item" onclick="mudarAba('doar'); location.href='#catalogo'">
+        <div class="ajudar-icone">
+          <svg viewBox="0 0 64 64" width="52" height="52" fill="#F8A334">
+            <path d="M32 32 C26 26 20 22 20 17 C20 13 23 10 27 10 C29.5 10 31.2 11.3 32 13 C32.8 11.3 34.5 10 37 10 C41 10 44 13 44 17 C44 22 38 26 32 32 Z"/>
+            <path d="M12 42 L24 38 L38 42 C41 43 42 46 39 47 L28 46 L28 49 L44 49 C48 49 52 46 54 43 L50 39 L40 43" fill="none" stroke="#F8A334" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 40 L26 37 L38 41 C40 42 40 45 37 45 L26 44 L44 47 C48 47 52 44 54 41 L56 44 C52 50 46 53 39 53 L20 51 L12 48 Z"/>
+          </svg>
+        </div>
+        <h3>Doar</h3>
+        <p>Cadastre um animal que precisa de um novo lar ou contribua com ração, medicamentos e cuidados veterinários.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <div class="footer-principal">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icone">
+                <img src="img/adp.png" width="200px">
+          </div>
+        </div>
+        <div class="sociais">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sociais</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#catalogo">Adote</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#catalogo" onclick="mudarAba('catalogo')">Adotar</a></li>
+          <li><a href="#catalogo" onclick="mudarAba('doar')">Doar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@adoptails.com.br">contato@adoptails.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Adoptails - Todos os direitos reservados.</span>
+      <a href="#inicio" class="btn-topo" title="Voltar ao topo">▲</a>
+    </div>
+  </footer>
+
+  <div id="modal-adocao" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-fechar" onclick="fecharModal('modal-adocao')">×</button>
+      <h3>Adotar <span id="modal-nome-pet"></span> 🐾</h3>
+      <p>Preencha seus dados para que nossa equipe entre em contato e agende uma visita.</p>
+      <form id="form-adocao">
+        <input type="hidden" id="adocao-animal-id">
+        <div class="form-grupo">
+          <label for="adocao-nome">Seu Nome Completo</label>
+          <input type="text" id="adocao-nome" required placeholder="Ex: Maria Silva">
+        </div>
+        <div class="form-grupo">
+          <label for="adocao-email">Seu E-mail</label>
+          <input type="email" id="adocao-email" required placeholder="Ex: maria@email.com">
+        </div>
+        <button type="submit" class="btn-enviar">Enviar Pedido de Adoção</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="modal-login" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-fechar" onclick="fecharModal('modal-login')">×</button>
+      <h3>Entrar no Adoptails</h3>
+      <p>Acesse sua conta de protetor ou adotante.</p>
+      <form onsubmit="event.preventDefault(); alert('Login realizado!'); fecharModal('modal-login');">
+        <div class="form-grupo">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" required placeholder="seu@email.com">
+        </div>
+        <div class="form-grupo">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn-enviar" style="background: var(--azul-escuro);">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
