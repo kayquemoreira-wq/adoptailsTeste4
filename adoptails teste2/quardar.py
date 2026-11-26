@@ -8,7 +8,7 @@ CORS(app)
 CONFIG_BANCO = {
     "host": "localhost",
     "user": "root",
-    "password": " ",
+    "password": "",
     "database": "adoptails",
 }
 
